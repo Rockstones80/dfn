@@ -1,8 +1,12 @@
 import { NavLink, Link } from "react-router-dom";
 import { IoGlobeOutline } from "react-icons/io5";
+import { UserButton, useUser } from '@clerk/clerk-react'
+// import { Button } from '../ui/button'
 
 
 const Header = () => {
+  const { user, isSignedIn } = useUser();
+
   return (
     <div className=" flex py-5 px-20 bg-gr justify-between items-center bg-gradient-to-b from-[#F4E7FF] to-[#fff]">
       <p className=" font-bold text-3xl">Resum<span className=" text-[#8910F1]">o</span></p>
@@ -17,9 +21,22 @@ const Header = () => {
             <IoGlobeOutline />
             <p>English</p>
         </div>
+
+        {
+          isSignedIn ? ( 
+            <div className='flex gap-2 items-center'>
+                    <Link to={'/dashboard'}>
+                        <button>Dashboard</button>
+                    </Link>
+                    <UserButton />
+                </div>
+          ) : (
         <div className=" px-8 py-2 bg-[#8910F1] rounded-lg  text-white cursor-pointer shadow-md hover:bg-purple-700 transition-colors duration-300">
-        <Link to='/login'> Start</Link>
+        <Link to={'/auth/sign-in'}> Start</Link>
         </div>
+
+          )
+        }
 
      </div>
     </div>

@@ -15,9 +15,9 @@ const Hero = () => {
             </p>
             
         
-            <p className="text-[#4E4D4D] text-2xl pb-[22px]">
+            {/* <p className="text-[#4E4D4D] text-2xl pb-[22px]">
                 Create awesome resumes with one of our template in just few seconds.
-            </p>
+            </p> */}
             </div>
             <button className="bg-[#8910F1] text-white px-6 py-3 rounded-md shadow-md hover:bg-purple-700 transition-colors duration-300">
                 Create Resume for free
